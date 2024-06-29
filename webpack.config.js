@@ -26,8 +26,10 @@ loaders.push('eslint-loader')
 }
 
 module.exports = {
-    // eslint-disable-next-line max-len
-    context: path.resolve(__dirname, 'src'), mode: 'development', entry: ['@babel/polyfill', './index.js'], output: {
+    context: path.resolve(__dirname, 'src'),
+    mode: 'development',
+    entry: ['@babel/polyfill', './index.js'],
+    output: {
         filename: filename('js'),
         path: path.resolve(__dirname, 'dist')
     },
@@ -55,7 +57,6 @@ module.exports = {
 
         new CopyPlugin({
             patterns: [
-                // eslint-disable-next-line max-len
                 {from: path.resolve(__dirname, 'src/favicon.ico'), to: path.resolve(__dirname, 'dist')}
             ],
         }),
@@ -68,9 +69,9 @@ module.exports = {
             {
                 test: /\.s[ac]ss$/i,
                 use: [
-                  MiniCssExtractPlugin.loader,
+                    MiniCssExtractPlugin.loader,
                     'css-loader',
-                    'sass-loader',
+                    'sass-loader'
                   ],
             },
             {
@@ -79,7 +80,7 @@ module.exports = {
                 use: jsLoader()
 
             }
-        ],
+        ]
     }
 
 }
